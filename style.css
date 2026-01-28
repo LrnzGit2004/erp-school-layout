@@ -1,0 +1,185 @@
+:root {
+  --primary-blue: #1e3a8a;
+  --active-blue: #1e3a8a;
+  --bg-body: #f4f6f9;
+  --bg-sidebar: #f8f9fa;
+  --text-main: #333333;
+  --text-light: #ffffff;
+  --text-muted: #64748b;
+  --border-color: #e5e7eb;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-body);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- HEADER --- */
+.header {
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.header-logo {
+  font-size: 18px;
+  font-weight: 500;
+}
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- LAYOUT --- */
+.main-container {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 60px);
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  user-select: none; /* Empêche la sélection de texte lors des clics répétés */
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 15px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  cursor: pointer;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+}
+.menu-item-content i {
+  width: 25px;
+  font-size: 18px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: #e9ecef;
+}
+
+/* Style spécifique pour le bouton qui déclenche le menu (Trigger) */
+.menu-trigger.active-state {
+  background-color: var(--active-blue);
+  color: var(--text-light);
+}
+
+/* Animation de la flèche */
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+.menu-trigger.active-state .arrow-icon {
+  transform: rotate(-180deg);
+}
+
+/* --- SOUS-MENU (ANIMATION) --- */
+.submenu {
+  max-height: 0; /* Caché par défaut */
+  overflow: hidden;
+  background-color: var(--active-blue);
+  transition: max-height 0.4s ease-out; /* Animation fluide */
+}
+
+.submenu.open {
+  max-height: 500px; /* Valeur arbitraire suffisante pour contenir les éléments */
+}
+
+.submenu-item {
+  display: block;
+  padding: 10px 25px 10px 60px;
+  color: var(--bg-sidebar);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.submenu-item:hover {
+  color: var(--text-light);
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Item sélectionné actuellement */
+.submenu-item.current {
+  color: var(--primary-blue);
+  font-weight: 500;
+  background-color: #eff6ff;
+  /* border-right: 3px solid var(--primary-blue); */
+}
+
+.sidebar-divider {
+  height: 1px;
+  background-color: #d1d5db;
+  margin: 20px 25px;
+}
+
+/* --- CONTENU --- */
+.content-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px 400px;
+  gap: 20px;
+  max-width: 1400px;
+}
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid #e5e7eb;
+}
+.card-wide {
+  grid-column: span 2;
+}
