@@ -17,6 +17,11 @@
   </head>
   <body>
     <header class="header">
+      <button class="burger-menu" id="burger-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="header-logo">Logo et Nom de l'établissement</div>
       <div class="header-user">
         <div class="user-avatar"><i class="fa-regular fa-user"></i></div>
@@ -96,6 +101,26 @@
     </div>
 
     <script>
+      // Gestion du menu burger
+      const burgerBtn = document.getElementById("burger-btn");
+      const sidebar = document.querySelector(".sidebar");
+
+      burgerBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+        burgerBtn.classList.toggle("active");
+      });
+
+      // Fermer le menu au clic sur un lien (sauf les menu-trigger)
+      const menuItems = document.querySelectorAll(
+        ".menu-item:not(.menu-trigger), .submenu-item",
+      );
+      menuItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          sidebar.classList.remove("open");
+          burgerBtn.classList.remove("active");
+        });
+      });
+
       // Sélection des éléments
       const scolariteBtn = document.getElementById("scolarite-btn");
       const scolariteSubmenu = document.getElementById("scolarite-submenu");

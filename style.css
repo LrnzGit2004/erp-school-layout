@@ -57,6 +57,37 @@ body {
   justify-content: center;
 }
 
+/* --- BURGER MENU --- */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.burger-menu span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
 /* --- LAYOUT --- */
 .main-container {
   display: flex;
@@ -182,4 +213,124 @@ body {
 }
 .card-wide {
   grid-column: span 2;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablettes et petits écrans (max 768px) */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .header {
+    padding: 0 15px;
+  }
+
+  .header-logo {
+    font-size: 16px;
+    flex: 1;
+    text-align: center;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 60px;
+    width: 260px;
+    height: calc(100vh - 60px);
+    border-right: 1px solid var(--border-color);
+    border-bottom: none;
+    z-index: 9;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .content-area {
+    flex: 1;
+  }
+}
+
+/* Mobile (max 576px) */
+@media (max-width: 576px) {
+  .header {
+    height: 50px;
+    padding: 0 10px;
+  }
+
+  .header-logo {
+    font-size: 14px;
+  }
+
+  .header-user {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .header-user span {
+    display: none;
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sidebar {
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
+
+  .content-area {
+    padding: 15px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+
+  .card {
+    height: 180px;
+  }
+
+  .card-wide {
+    grid-column: span 1;
+  }
+}
+
+/* Très petit mobile (max 380px) */
+@media (max-width: 380px) {
+  .header-logo {
+    font-size: 12px;
+  }
+
+  .burger-menu {
+    gap: 4px;
+  }
+
+  .burger-menu span {
+    width: 20px;
+    height: 2px;
+  }
+
+  .content-area {
+    padding: 10px;
+  }
+
+  .dashboard-grid {
+    gap: 10px;
+  }
+
+  .card {
+    height: 150px;
+  }
 }
