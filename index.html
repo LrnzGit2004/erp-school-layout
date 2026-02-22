@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layout Proposition</title>
+    <title>SYGAP - Tableau de bord Unifié</title>
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -17,138 +16,308 @@
   </head>
   <body>
     <header class="header">
-      <button class="burger-menu" id="burger-btn" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="header-logo">Logo et Nom de l'établissement</div>
-      <div class="header-user">
-        <div class="user-avatar"><i class="fa-regular fa-user"></i></div>
-        <span>Bonjour, Eric</span>
-        <i class="fa-solid fa-chevron-down" style="font-size: 12px"></i>
+      <div class="header-left">
+        <button class="burger-menu" id="burger-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="header-logo">
+          <img src="logo-SYGAP.png" alt="" class="logo-image" />
+          <span style="font-weight: 700; color: var(--sygap-green)">SYGAP</span>
+          <span class="logo-subtitle">Université de Ngaoundéré</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="header-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Rechercher une thèse, un auteur..." />
+        </div>
+        <div class="notification-icon">
+          <i class="fa-regular fa-bell"></i>
+          <span class="badge">5</span>
+        </div>
+        <div class="header-user">
+          <div class="user-avatar"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="user-info">
+            <span class="user-name">Admin Système</span>
+            <span class="user-role">Super Administrateur</span>
+          </div>
+          <i
+            class="fa-solid fa-chevron-down"
+            style="font-size: 12px; color: var(--text-muted)"
+          ></i>
+        </div>
       </div>
     </header>
 
     <div class="main-container">
       <nav class="sidebar">
-        <a href="#" class="menu-item">
+        <a href="#" class="menu-item active">
           <div class="menu-item-content">
-            <i class="fa-solid fa-house"></i>
-            Tableau de bord
+            <i class="fa-solid fa-chart-pie"></i> Vue d'ensemble
           </div>
         </a>
 
-        <div class="menu-item menu-trigger active-state" id="scolarite-btn">
+        <div class="sidebar-divider">Scolarité & Recherche</div>
+
+        <div class="menu-item menu-trigger">
           <div class="menu-item-content">
-            <i class="fa-solid fa-graduation-cap"></i>
-            Scolarité
+            <i class="fa-solid fa-user-graduate"></i> Suivi des Thèses
           </div>
-          <i
-            class="fa-solid fa-chevron-down arrow-icon"
-            style="font-size: 12px"
-          ></i>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="submenu">
+          <a href="#" class="submenu-item">Projets en cours</a>
+          <a href="#" class="submenu-item">Étapes & Validations</a>
+          <a href="#" class="submenu-item">Comités & Jurys</a>
+          <a href="#" class="submenu-item">PV de Soutenances</a>
         </div>
 
-        <div class="submenu open" id="scolarite-submenu">
-          <a href="#" class="submenu-item">Étudiants</a>
-          <a href="#" class="submenu-item current">Inscriptions</a>
-          <a href="#" class="submenu-item">Filières</a>
-          <a href="#" class="submenu-item">Niveaux</a>
-          <a href="#" class="submenu-item">Parcours</a>
+        <div class="sidebar-divider">Édition & Diffusion</div>
+
+        <div class="menu-item menu-trigger">
+          <div class="menu-item-content">
+            <i class="fa-solid fa-book-open"></i> Publications
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="submenu">
+          <a href="#" class="submenu-item" style="color: var(--sygap-gold)"
+            >En attente (UFD) <span class="nav-badge">3</span></a
+          >
+          <a href="#" class="submenu-item">Catalogue Global</a>
+          <a href="#" class="submenu-item">Articles Scientifiques</a>
+          <a href="#" class="submenu-item">Mémoires de Master</a>
+        </div>
+
+        <div class="sidebar-divider">Organisation</div>
+
+        <div class="menu-item menu-trigger">
+          <div class="menu-item-content">
+            <i class="fa-solid fa-sitemap"></i> Structures
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="submenu">
+          <a href="#" class="submenu-item">Écoles Doctorales</a>
+          <a href="#" class="submenu-item">UFDs</a>
+          <a href="#" class="submenu-item">Laboratoires</a>
+          <a href="#" class="submenu-item">Équipes de Recherche</a>
         </div>
 
         <a href="#" class="menu-item">
           <div class="menu-item-content">
-            <i class="fa-regular fa-calendar-xmark"></i>
-            Absences
+            <i class="fa-solid fa-users-gear"></i> Utilisateurs & Rôles
           </div>
         </a>
 
         <a href="#" class="menu-item">
           <div class="menu-item-content">
-            <i class="fa-solid fa-building-user"></i>
-            GRH
-          </div>
-        </a>
-
-        <a href="#" class="menu-item">
-          <div class="menu-item-content">
-            <i class="fa-solid fa-box-archive"></i>
-            Ressources
-          </div>
-        </a>
-
-        <div class="sidebar-divider"></div>
-
-        <a href="#" class="menu-item">
-          <div class="menu-item-content">
-            <i class="fa-solid fa-gear"></i>
-            Paramètres
+            <i class="fa-solid fa-sliders"></i> Paramètres
           </div>
         </a>
       </nav>
 
       <main class="content-area">
+        <div class="page-header">
+          <h2>Tableau de bord</h2>
+          <p>Statistiques globales SYGAP - Plateforme intégrée</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="
+                background: rgba(26, 122, 104, 0.1);
+                color: var(--sygap-green);
+              "
+            >
+              <i class="fa-solid fa-spinner"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Thèses en rédaction</h3>
+              <p class="stat-value">142</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="
+                background: rgba(212, 175, 55, 0.1);
+                color: var(--sygap-gold);
+              "
+            >
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3>À valider (Pub_Resp)</h3>
+              <p class="stat-value">18</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="
+                background: rgba(26, 122, 104, 0.1);
+                color: var(--sygap-green);
+              "
+            >
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Publications Publiques</h3>
+              <p class="stat-value">840</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="
+                background: rgba(183, 28, 28, 0.1);
+                color: var(--sygap-red);
+              "
+            >
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Visibilité Restreinte</h3>
+              <p class="stat-value">16</p>
+            </div>
+          </div>
+        </div>
+
         <div class="dashboard-grid">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card card-wide"></div>
-          <div class="card"></div>
+          <div class="card card-wide">
+            <div class="card-header">
+              <h3>Fil d'activités (Temps Réel)</h3>
+              <button class="btn-icon">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <ul class="activity-list">
+                <li>
+                  <div
+                    class="activity-indicator"
+                    style="background-color: var(--sygap-green)"
+                  ></div>
+                  <div class="activity-content">
+                    <p>
+                      <strong>Validation du Jury</strong> effectuée pour la
+                      thèse de <em>Marie Yondo</em>. Le dossier a été
+                      automatiquement transféré au Chargé de publication de
+                      l'UFD Sciences.
+                    </p>
+                    <span class="time">Il y a 10 minutes</span>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="activity-indicator"
+                    style="background-color: var(--sygap-gold)"
+                  ></div>
+                  <div class="activity-content">
+                    <p>
+                      <strong>Nouvelle soumission :</strong> L'étudiant
+                      <em>Moussa Ali</em> a soumis un mémoire de Master. En
+                      attente de révision.
+                    </p>
+                    <span class="time">Il y a 2 heures</span>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="activity-indicator"
+                    style="background-color: var(--sygap-red)"
+                  ></div>
+                  <div class="activity-content">
+                    <p>
+                      <strong>Restriction de visibilité</strong> appliquée par
+                      le Chargé de publication sur la thèse #T-402 (Motif :
+                      Brevet en cours).
+                    </p>
+                    <span class="time">Hier à 14:30</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card status-card">
+            <div class="card-header">
+              <h3>Santé du Système</h3>
+            </div>
+            <div class="card-body">
+              <p class="status-desc">
+                SYGAP centralise désormais toutes les données académiques et
+                éditoriales de l'université dans une base de données unique.
+              </p>
+
+              <div class="system-status">
+                <h4>Contacts des développeurs</h4>
+                <div class="status-item">
+                  <span>CHAME Grâce</span>
+                  <span class="badge-status online">Backend</span>
+                </div>
+                <div class="status-item">
+                  <span>Eric Lorryl SOBZE</span>
+                  <span class="badge-status online">Frontend/UI/UX</span>
+                </div>
+                <div class="status-item">
+                  <span>Frank YOTEU</span>
+                  <span class="badge-status online">Backend/DevOps</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
 
     <script>
-      // Gestion du menu burger
+      // Gestion du menu burger (Mobile)
       const burgerBtn = document.getElementById("burger-btn");
       const sidebar = document.querySelector(".sidebar");
 
-      burgerBtn.addEventListener("click", function () {
+      burgerBtn.addEventListener("click", () => {
         sidebar.classList.toggle("open");
         burgerBtn.classList.toggle("active");
       });
 
-      // Fermer le menu au clic sur un lien (sauf les menu-trigger)
-      const menuItems = document.querySelectorAll(
-        ".menu-item:not(.menu-trigger), .submenu-item",
-      );
-      menuItems.forEach((item) => {
-        item.addEventListener("click", function () {
-          sidebar.classList.remove("open");
-          burgerBtn.classList.remove("active");
+      // Script générique pour les menus accordéons
+      const menuTriggers = document.querySelectorAll(".menu-trigger");
+
+      menuTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", function () {
+          const submenu = this.nextElementSibling;
+          const arrow = this.querySelector(".arrow-icon");
+
+          // Fermer les autres menus
+          document.querySelectorAll(".submenu").forEach((sub) => {
+            if (sub !== submenu) sub.classList.remove("open");
+          });
+          document
+            .querySelectorAll(".menu-trigger .arrow-icon")
+            .forEach((icon) => {
+              if (icon !== arrow) icon.style.transform = "rotate(0deg)";
+            });
+          document.querySelectorAll(".menu-trigger").forEach((btn) => {
+            if (btn !== this) btn.classList.remove("active-state");
+          });
+
+          // Basculer l'état
+          submenu.classList.toggle("open");
+
+          if (submenu.classList.contains("open")) {
+            arrow.style.transform = "rotate(-180deg)";
+            this.classList.add("active-state");
+          } else {
+            arrow.style.transform = "rotate(0deg)";
+            this.classList.remove("active-state");
+          }
         });
       });
-
-      // Sélection des éléments
-      const scolariteBtn = document.getElementById("scolarite-btn");
-      const scolariteSubmenu = document.getElementById("scolarite-submenu");
-
-      // Ajout de l'événement clic
-      scolariteBtn.addEventListener("click", function () {
-        // 1. Basculer la classe 'open' sur le sous-menu (ouvre/ferme)
-        scolariteSubmenu.classList.toggle("open");
-
-        // 2. Basculer l'état visuel du bouton (si vous voulez qu'il change de couleur ou que la flèche tourne)
-        // Note: ici on garde la couleur bleue active, mais on pourrait la retirer si le menu est fermé
-
-        // Pour faire tourner la flèche, c'est géré par CSS via la classe parente.
-        // Si on veut que la flèche ne tourne que si le menu est ouvert :
-        if (scolariteSubmenu.classList.contains("open")) {
-          scolariteBtn.querySelector(".arrow-icon").style.transform =
-            "rotate(-180deg)";
-        } else {
-          scolariteBtn.querySelector(".arrow-icon").style.transform =
-            "rotate(0deg)";
-        }
-      });
-
-      // Initialisation correcte de la flèche au chargement
-      if (scolariteSubmenu.classList.contains("open")) {
-        scolariteBtn.querySelector(".arrow-icon").style.transform =
-          "rotate(-180deg)";
-      }
     </script>
   </body>
 </html>
